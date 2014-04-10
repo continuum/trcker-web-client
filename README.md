@@ -1,5 +1,5 @@
 # Trcker web client
-Trcker born as part of a tutorial about using [emberjs](http://emberjs)
+Trcker born as part of a tutorial about using [emberjs](http://emberjs.com)
 
 ## Development setup
 
