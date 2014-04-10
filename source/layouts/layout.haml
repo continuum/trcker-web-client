@@ -1,0 +1,18 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %meta{content: "", name: "description"}/
+    %title= current_page.data.title || "Trcker Web Client"
+
+    / Bootstrap core CSS
+    = stylesheet_link_tag "vendor/bootstrap-3.0.2"
+    = stylesheet_link_tag "vendor/font-awesome-4.0.3"
+    = stylesheet_link_tag "all"
+
+    = yield_content(:scripts)
+    / JS
+    = javascript_include_tag 'vendor', 'app'
+  %body
