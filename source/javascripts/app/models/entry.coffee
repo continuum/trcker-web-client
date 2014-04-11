@@ -11,8 +11,20 @@ App.Entry = DS.Model.extend
 
   project: DS.belongsTo 'project'
 
-  time: (->
-    moment(@get 'endAt').subtract(@get 'startAt').format('hh:mm:ss')
+  time: ((key, value) ->
+    if arguments.length > 1
+      elapsed = moment(value, 'hh:mm') # parse time
+      if elapsed.isValid()
+        newEndAt = moment(@get 'startAt') # end is start
+        newEndAt.add 'hours', elapsed.get 'hours'
+        newEndAt.add 'minutes', elapsed.get 'minutes'
+        # console.log newEndAt.toDate()
+        # set new endAt
+        @set 'endAt', newEndAt.toDate()
+      else
+        console.log "TODO: Send 'Time format invalid' message to somewhere..."
+    else
+      moment(@get 'endAt').subtract(@get 'startAt').format('hh:mm:ss')
   ).property 'startAt', 'endAt'
 
   onStartedChange: (->
