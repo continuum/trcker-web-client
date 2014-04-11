@@ -4,13 +4,26 @@ Time tracker models
 'use strict'
 App.Entry = DS.Model.extend
   text: DS.attr 'string'
+  started: DS.attr 'boolean'
   createdAt: DS.attr 'date'
   startAt: DS.attr 'date'
   endAt: DS.attr 'date'
+
   project: DS.belongsTo 'project'
+
   time: (->
-    moment(@get 'endAt').subtract(@get 'startAt').format('hh:mm')
+    moment(@get 'endAt').subtract(@get 'startAt').format('hh:mm:ss')
   ).property 'startAt', 'endAt'
+
+  onStartedChange: (->
+    if @get 'started'
+      @interval = setInterval =>
+        endAt = @get 'endAt'
+        @set 'endAt', moment(endAt).add 'seconds', 1
+      , 1000
+    else
+      clearInterval @interval
+  ).observes 'started'
 
 App.Entry.FIXTURES = [
   {

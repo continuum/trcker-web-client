@@ -27,7 +27,7 @@
         </div>
         <div class="col-xs-6 col-md-4">
           <b>{{time}}</b>
-          {{view App.StartStopButtonView}}
+          {{view App.StartStopButtonView entryId=id}}
           <button type="button" class="btn btn-warning" {{action 'edit' id}}>
             <i class="fa fa-pencil-square-o"></i> Edit
           </button>

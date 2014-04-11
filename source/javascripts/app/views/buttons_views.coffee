@@ -13,6 +13,7 @@ App.ButtonView = Ember.View.extend
 App.StartStopButtonView = App.ButtonView.extend
   classNameBindings: 'stateClass'
   started: false
+  entryId: null
 
   icon: (->
     if @started then 'stop' else 'play'
@@ -23,7 +24,6 @@ App.StartStopButtonView = App.ButtonView.extend
   ).property 'started'
 
   isStarted: (->
-    console.log 'is started'
     @get 'started'
   ).property 'started'
 
@@ -33,13 +33,23 @@ App.StartStopButtonView = App.ButtonView.extend
     else
       @$().html "<i class='fa fa-play-circle'></i> Start"
 
-  reRenderHtml: (->
+  onStateChange: (->
+    # refresh content
     @renderHtml()
+    # send signal to model
   ).observes 'started'
 
+  store: ->
+    @get('controller').get('store')
+
+  entry: (id, cb) ->
+    @store().find('entry', @entryId).then (entry) ->
+      cb entry
+
   click: ->
-    console.log 'click'
     @set 'started', not @started
+    @entry @entryId, (entry) =>
+      entry.set 'started', @started
 
   didInsertElement: ->
     @_super()
