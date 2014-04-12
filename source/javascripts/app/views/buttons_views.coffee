@@ -7,7 +7,7 @@ Start/stop button
 App.ButtonView = Ember.View.extend
   tagName: 'button'
   classNames: ['btn trcker-btn']
-  type: 'button'
+  # type: 'button'
 
 # start/stop entry button
 App.StartStopButtonView = App.ButtonView.extend
@@ -15,16 +15,8 @@ App.StartStopButtonView = App.ButtonView.extend
   started: false
   entryId: null
 
-  icon: (->
-    if @started then 'stop' else 'play'
-  ).property 'started'
-
   stateClass: (->
     if @started then 'started btn-danger' else 'stoped btn-default'
-  ).property 'started'
-
-  isStarted: (->
-    @get 'started'
   ).property 'started'
 
   renderHtml :->
@@ -40,11 +32,10 @@ App.StartStopButtonView = App.ButtonView.extend
   ).observes 'started'
 
   store: ->
-    @get('controller').get('store')
+    @get('controller').get 'store'
 
   entry: (id, cb) ->
-    @store().find('entry', @entryId).then (entry) ->
-      cb entry
+    @store().find('entry', @entryId).then (entry) -> cb entry
 
   click: ->
     @set 'started', not @started

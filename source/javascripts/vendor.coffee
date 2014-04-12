@@ -5,5 +5,4 @@
 #= require ./vendor/handlebars
 #= require ./vendor/ember-latest
 #= require ./vendor/ember-data
-#= require ./vendor/ember-states
 #= require_tree ./vendor

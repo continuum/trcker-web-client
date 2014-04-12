@@ -22,7 +22,7 @@ App.ProjectsSearchView = Ember.TextField.extend
 
   didInsertElement: ->
     @_super()
-    @typeahead = @$().typeahead {minLength: 2, highlight: true},
+    @typeahead = @$().typeahead {minLength: 1, highlight: true},
       name: 'projects'
       displayKey: 'name'
       source: @substringMatcher App.Project.FIXTURES

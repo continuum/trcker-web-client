@@ -4,7 +4,9 @@ Application controller
 'use strict'
 App.TodayController = Ember.ArrayController.extend
   now: new Date()
-  formatedNow: (-> moment(@get 'now').format "ddd, MMM Do").property 'now'
+  formatedNow: (->
+    moment(@get 'now').format "ddd, MMM Do"
+  ).property 'now'
 
   actions:
     play: (entryId) -> alert "Not implemented"
