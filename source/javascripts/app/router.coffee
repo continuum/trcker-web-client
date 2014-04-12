@@ -5,6 +5,9 @@ Application routes
 App.Router.map ->
   @route 'about'
   @route 'today'
+
   @resource 'projects', ->
     @route 'new'
     @route 'project', path: '/:project_id'
+
+  @resource 'timeline', path: '/timeline/:date'
