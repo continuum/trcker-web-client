@@ -1,7 +1,12 @@
 <div class="jumbotron">
   <h2>Hey dude, welcome to Trcker!</h2>
   <p>
-    <i>Wanna go straight to your</i>
-    {{#link-to "Timeline" 'today' class='btn btn-success btn-lg'}} ?
+    <i>Wanna go straight to </i>
+    <button {{action 'todayTimeline'}} class='btn btn-success'>
+      Today timeline
+    </button>
+    or then you can go to
+    <a href='/#/timeline/April-10-2014'>this timeline</a>
+    that actually has data
   </p>
 </div>

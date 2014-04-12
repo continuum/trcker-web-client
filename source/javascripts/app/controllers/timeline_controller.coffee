@@ -5,5 +5,5 @@ Application controller
 App.TimelineController = Ember.ArrayController.extend
   now: new Date()
   formatedNow: (->
-    moment(@get 'now').format "ddd, MMM Do"
+    moment(@get 'now').format "ddd, MMM DD"
   ).property 'now'
