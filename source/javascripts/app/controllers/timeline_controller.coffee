@@ -1,9 +1,5 @@
 ###
-Application controller
+Timeline controller
 ###
-'use strict'
-App.TimelineController = Ember.ArrayController.extend
-  now: new Date()
-  formatedNow: (->
-    moment(@get 'now').format "ddd, MMM DD"
-  ).property 'now'
+#'use strict'
+#App.TimelineController = Ember.ObjectController.extend()

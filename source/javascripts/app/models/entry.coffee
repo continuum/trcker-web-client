@@ -1,14 +1,14 @@
 ###
-Time tracker models
+Timeline Entry model
 ###
 'use strict'
 App.Entry = DS.Model.extend
   text: DS.attr 'string'
   started: DS.attr 'boolean'
-  createdAt: DS.attr 'string'
   startAt: DS.attr 'date'
   endAt: DS.attr 'date'
 
+  timeline: DS.belongsTo 'timeline'
   project: DS.belongsTo 'project'
 
   elapsedTime: ((key, value) ->
@@ -42,25 +42,25 @@ App.Entry.FIXTURES = [
   {
     id: 1
     text: 'Initializing the codebase...'
-    createdAt: 'April-10-2014'
     startAt: new Date(Date.parse('Apr 10 2014 10:34'))
     endAt: new Date(Date.parse('Apr 10 2014 17:34'))
+    timeline: 1
     project: 1
   },
   {
     id: 2
     text: 'Studing about artificial inteligence...'
-    createdAt: 'April-10-2014'
     startAt: new Date(Date.parse('Apr 10 2014 17:40'))
     endAt: new Date(Date.parse('Apr 10 2014 22:13'))
+    timeline: 1
     project: 1
   },
   {
     id: 3
     text: 'Meeting with the client, prioritizing next features...'
-    createdAt: 'April-10-2014'
     startAt: new Date(Date.parse('Apr 10 2014 08:34'))
     endAt: new Date(Date.parse('Apr 10 2014 12:04'))
+    timeline: 1
     project: 2
   },
   {
@@ -69,6 +69,7 @@ App.Entry.FIXTURES = [
     createdAt: 'April-11-2014'
     startAt: new Date(Date.parse('Apr 11 2014 09:04'))
     endAt: new Date(Date.parse('Apr 11 2014 17:04'))
+    timeline: 2
     project: 3
   }
 ];
