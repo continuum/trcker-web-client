@@ -2,11 +2,9 @@
   <h2>Hey dude, welcome to Trcker!</h2>
   <p>
     <i>Wanna go straight to </i>
-    <button {{action 'todayTimeline'}} class='btn btn-success'>
-      Today timeline
-    </button>
+    {{link-to 'Today timeline' 'timeline' 'today' class='btn btn-success'}}
     or then you can go to
-    <a href='/#/timeline/April-10-2014'>this timeline</a>
+    {{link-to 'this timeline' 'timeline' 'April-10-2014' class='btn btn-success'}}
     that actually has data
   </p>
 </div>

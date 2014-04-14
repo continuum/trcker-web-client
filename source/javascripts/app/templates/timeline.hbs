@@ -1,38 +1,64 @@
-<h4>{{formatedCreatedAt}}</h4>
-<div class="list-group-item">
-  <div class="btn-toolbar" role="toolbar">
-    <div class="btn-group">
-      <button type="button" class="btn btn-default">Mon</button>
-      <button type="button" class="btn btn-default">Tue</button>
-      <button type="button" class="btn btn-default">Wed</button>
-      <button type="button" class="btn btn-default">Thu</button>
-      <button type="button" class="btn btn-default active">Fri</button>
-      <button type="button" class="btn btn-default">Sat</button>
-      <button type="button" class="btn btn-default">Sun</button>
-    </div>
-    <div class="btn-group">
-      <button type="button" class="btn btn-succes" {{action 'newEntry'}}>
-        <i class="fa fa-plus"></i>  New entry
-      </button>
-    </div>
-  </div>
-  <div style="margin-top: 10px;" />
-
-  {{#each entries}}
-    <div class="list-group-item">
+<div id='timeline-container'>
+  <h4>{{formatedCreatedAt}}</h4>
+  <div class="list-group-item">
+    <div class="btn-toolbar" role="toolbar">
       <div class="row">
-        <div class="col-xs-12 col-md-8">
-          <span class="label label-primary">{{project.name}}</span>
-          <p>{{text}}</p>
+        <div class="col-md-4">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default">Mon</button>
+            <button type="button" class="btn btn-default">Tue</button>
+            <button type="button" class="btn btn-default">Wed</button>
+            <button type="button" class="btn btn-default">Thu</button>
+            <button type="button" class="btn btn-default active">Fri</button>
+            <button type="button" class="btn btn-default">Sat</button>
+            <button type="button" class="btn btn-default">Sun</button>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-4">
-          <b>{{elapsedTime}}</b>
-          {{view App.StartStopButtonView entryId=id}}
-          <button type="button" class="btn btn-warning" {{action 'edit' id}}>
-            <i class="fa fa-pencil-square-o"></i> Edit
-          </button>
+        <div class="col-md-8">
+          <div class="btn-group pull-right">
+            {{#view App.TimelineNewEntryView timelineId=id}}
+              <form class="form-inline" role="form">
+                <div class="form-group">
+                  <label class="sr-only" for="project-name">Project</label>
+                  <input type="text" id='new-entry-project-name' class="form-control" placeholder="Enter project">
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="text">Text</label>
+                  <input type="text" id='new-entry-text' class="form-control" placeholder="What are you doing...">
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="text">Elapsed</label>
+                  <input type="text" size='4' maxlength='5' id='new-entry-time' class="form-control" placeholder="Time">
+                </div>
+                <button id='new-entry-btn' type="button" class="btn btn-success">
+                  <i class="fa fa-plus"></i> Create entry
+                </button>
+              </form>
+            {{/view}}
+          </div>
         </div>
       </div>
     </div>
-  {{/each}}
+    <div style="margin-top: 10px;" />
+
+    {{#each entries}}
+      <div class="list-group-item">
+        <div class="row">
+          <div class="col-md-8">
+            <span class="label label-primary">{{project.name}}</span>
+            <p>{{text}}</p>
+          </div>
+          <div class="col-md-4 pull-right">
+            <div class='pull-right'>
+              <b>{{elapsedTime}}</b>
+              {{view App.StartStopButtonView entryId=id}}
+              <button type="button" class="btn btn-warning" {{action 'edit' id}}>
+                <i class="fa fa-pencil-square-o"></i> Edit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
 </div>

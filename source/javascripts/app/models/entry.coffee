@@ -25,7 +25,7 @@ App.Entry = DS.Model.extend
         console.log "TODO: Send 'Time format invalid' message to somewhere..."
         alert 'Bad formated time. A good example is 5:34'
 
-    moment(@get 'endAt').subtract(@get 'startAt').format('hh:mm:ss')
+    moment(@get 'endAt').subtract(@get 'startAt').format('HH:mm:ss')
   ).property 'startAt', 'endAt'
 
   onStartedChange: (->
