@@ -1,5 +1,5 @@
 ###
-Custom search view with autocomplete support
+Timeline New Entry View
 ###
 'use strict'
 App.TimelineNewEntryView = Ember.View.extend

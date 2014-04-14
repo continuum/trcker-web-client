@@ -4,15 +4,17 @@
     <div class="btn-toolbar" role="toolbar">
       <div class="row">
         <div class="col-md-4">
+          {{#view App.TimelineWeekView timelineId=id}}
           <div class="btn-group">
-            <button type="button" class="btn btn-default">Mon</button>
-            <button type="button" class="btn btn-default">Tue</button>
-            <button type="button" class="btn btn-default">Wed</button>
-            <button type="button" class="btn btn-default">Thu</button>
-            <button type="button" class="btn btn-default active">Fri</button>
-            <button type="button" class="btn btn-default">Sat</button>
-            <button type="button" class="btn btn-default">Sun</button>
+            <button id='timeline-week-mon' type="button" class="btn btn-default week-day">Mo</button>
+            <button id='timeline-week-tue' type="button" class="btn btn-default week-day">Tu</button>
+            <button id='timeline-week-wed' type="button" class="btn btn-default week-day">We</button>
+            <button id='timeline-week-thu' type="button" class="btn btn-default week-day">Th</button>
+            <button id='timeline-week-fri' type="button" class="btn btn-default week-day">Fr</button>
+            <button id='timeline-week-sat' type="button" class="btn btn-default week-day">Sa</button>
+            <button id='timeline-week-sun' type="button" class="btn btn-default week-day">Su</button>
           </div>
+          {{/view}}
         </div>
         <div class="col-md-8">
           <div class="btn-group pull-right">
@@ -20,15 +22,18 @@
               <form class="form-inline" role="form">
                 <div class="form-group">
                   <label class="sr-only" for="project-name">Project</label>
-                  <input type="text" id='new-entry-project-name' class="form-control" placeholder="Enter project">
+                  <input type="text" id='new-entry-project-name'
+                    class="form-control" placeholder="Enter project">
                 </div>
                 <div class="form-group">
                   <label class="sr-only" for="text">Text</label>
-                  <input type="text" id='new-entry-text' class="form-control" placeholder="What are you doing...">
+                  <input type="text" id='new-entry-text' class="form-control"
+                    placeholder="What are you doing...">
                 </div>
                 <div class="form-group">
                   <label class="sr-only" for="text">Elapsed</label>
-                  <input type="text" size='4' maxlength='5' id='new-entry-time' class="form-control" placeholder="Time">
+                  <input type="text" size='4' maxlength='5' id='new-entry-time'
+                    class="form-control" placeholder="Time">
                 </div>
                 <button id='new-entry-btn' type="button" class="btn btn-success">
                   <i class="fa fa-plus"></i> Create entry
@@ -51,7 +56,7 @@
           <div class="col-md-4 pull-right">
             <div class='pull-right'>
               <b>{{elapsedTime}}</b>
-              {{view App.StartStopButtonView entryId=id}}
+              {{view App.StartStopButtonView entryId=id started=started}}
               <button type="button" class="btn btn-warning" {{action 'edit' id}}>
                 <i class="fa fa-pencil-square-o"></i> Edit
               </button>

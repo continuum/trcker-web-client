@@ -39,12 +39,12 @@ App.Timeline = DS.Model.extend
 App.Timeline.FIXTURES = [
   {
     id: 1
-    createdAt: 'April-10-2014'
+    createdAt: 'April-14-2014'
     entries: [1,2,3]
   },
   {
     id: 2
-    createdAt: 'April-11-2014'
+    createdAt: 'April-15-2014'
     entries: [4]
   }
 ]

@@ -42,33 +42,32 @@ App.Entry.FIXTURES = [
   {
     id: 1
     text: 'Initializing the codebase...'
-    startAt: new Date(Date.parse('Apr 10 2014 10:34'))
-    endAt: new Date(Date.parse('Apr 10 2014 17:34'))
+    startAt: new Date(Date.parse('Apr 14 2014 10:34'))
+    endAt: new Date(Date.parse('Apr 14 2014 17:34'))
     timeline: 1
     project: 1
   },
   {
     id: 2
     text: 'Studing about artificial inteligence...'
-    startAt: new Date(Date.parse('Apr 10 2014 17:40'))
-    endAt: new Date(Date.parse('Apr 10 2014 22:13'))
+    startAt: new Date(Date.parse('Apr 14 2014 17:40'))
+    endAt: new Date(Date.parse('Apr 14 2014 22:13'))
     timeline: 1
     project: 1
   },
   {
     id: 3
     text: 'Meeting with the client, prioritizing next features...'
-    startAt: new Date(Date.parse('Apr 10 2014 08:34'))
-    endAt: new Date(Date.parse('Apr 10 2014 12:04'))
+    startAt: new Date(Date.parse('Apr 14 2014 08:34'))
+    endAt: new Date(Date.parse('Apr 14 2014 12:04'))
     timeline: 1
     project: 2
   },
   {
     id: 4
     text: 'Meeting with the client, prioritizing next features...'
-    createdAt: 'April-11-2014'
-    startAt: new Date(Date.parse('Apr 11 2014 09:04'))
-    endAt: new Date(Date.parse('Apr 11 2014 17:04'))
+    startAt: new Date(Date.parse('Apr 15 2014 09:04'))
+    endAt: new Date(Date.parse('Apr 15 2014 17:04'))
     timeline: 2
     project: 3
   }
