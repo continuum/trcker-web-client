@@ -5,4 +5,5 @@
 #= require ./vendor/handlebars
 #= require ./vendor/ember-latest
 #= require ./vendor/ember-data
+#= require ./vendor/localstorage_adapter
 #= require_tree ./vendor

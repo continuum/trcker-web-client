@@ -9,7 +9,6 @@ App.TimelineWeekView = Ember.View.extend
     @get('controller').get 'store'
 
   onClick: (el, day) ->
-    console.log day
     el.click =>
       window.location = "/#/timeline/#{day.format 'MMMM-DD-YYYY'}"
       # set active

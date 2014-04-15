@@ -3,14 +3,13 @@ Timeline model
 ###
 App.Timeline = DS.Model.extend
   createdAt: DS.attr 'string'
+  entries: DS.hasMany 'entry'
 
   formatedCreatedAt: (->
       moment(@get 'createdAt', 'MMMM-DD-YYYY').format "ddd, MMM DD"
   ).property 'createdAt'
 
   createdAtDate: -> moment(@get 'createdAt', 'MMMM-DD-YYYY')
-
-  entries: DS.hasMany 'entry', async: true
 
   addEntry: (options) ->
     # calculate startAt
@@ -26,25 +25,11 @@ App.Timeline = DS.Model.extend
 
     entry = @store.createRecord 'entry',
       text: options.text
-      started: false
       startAt: startAt
       endAt: endAt
       timeline: @
       project: options.project
 
-    # entries load async, so @get return a promise
-    @get('entries').then (entries) -> entries.pushObject entry
-
-# local database
-App.Timeline.FIXTURES = [
-  {
-    id: 1
-    createdAt: 'April-14-2014'
-    entries: [1,2,3]
-  },
-  {
-    id: 2
-    createdAt: 'April-15-2014'
-    entries: [4]
-  }
-]
+    entry.save().then () =>
+      @get('entries').pushObject entry
+      @save()
